@@ -22,6 +22,16 @@ class Seria(models.Model):
     tempo = models.CharField(max_length=10)
     nagraj = models.BooleanField(default=False)
     podopieczny = models.ForeignKey(User, on_delete=models.CASCADE)
+    class DayTypes(models.TextChoices):
+        PONIEDZIALEK = ("Poniedzialek", "poniedzialek")
+        WTOREK = ("Wtorek", "wtorek")
+        SRODA = ("Sroda", "sroda")
+        CZWARTEK = ("Czwartek", "czwartek")
+        PIATEK = ("Piatek", "piatek")
+        SOBOTA = ("Sobota", "sobota")
+        NIEDZIELA = ("Niedziela", "niedziela")
+
+    dzien_tygodnia = models.CharField(max_length=64, choices=DayTypes.choices, blank=True, null=True)
 
     def __str__(self):
         return f"{self.cwiczenie} - {self.podopieczny}"

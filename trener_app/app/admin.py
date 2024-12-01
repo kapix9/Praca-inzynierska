@@ -10,7 +10,7 @@ class CwiczenieAdmin(admin.ModelAdmin):
 
 class SeriaAdmin(admin.ModelAdmin):
     list_display = ('cwiczenie', 'ilosc_powtorzen', 'ilosc_serii', 'obciazenie', 'uwagi', 'tempo', 'nagraj',  )
-
+    list_filter = ('podopieczny','dzien_tygodnia')
 # Register your models here.
 
 admin.site.register(Cwiczenie,CwiczenieAdmin)
